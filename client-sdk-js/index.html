@@ -1,0 +1,407 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>LiveKit JS SDK - v0.5.0</title>
+	<meta name="description" content="Documentation for LiveKit JS SDK - v0.5.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">LiveKit JS SDK - v0.5.0</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>LiveKit JS SDK - v0.5.0</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#javascripttypescript-client-sdk-for-livekit" id="javascripttypescript-client-sdk-for-livekit" style="color: inherit; text-decoration: none;">
+					<h1>JavaScript/TypeScript client SDK for LiveKit</h1>
+				</a>
+				<p><code>livekit-client</code> is the official client SDK for <a href="https://github.com/livekit/livekit-server">LiveKit</a>. With it, you can add real time video and audio to your web apps. LiveKit uses WebRTC in the browser.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
+					<h3>Yarn</h3>
+				</a>
+				<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">add</span><span style="color: #000000"> </span><span style="color: #001080">livekit</span><span style="color: #000000">-</span><span style="color: #001080">client</span>
+</code></pre>
+				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
+					<h3>NPM</h3>
+				</a>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> </span><span style="color: #001080">livekit</span><span style="color: #000000">-</span><span style="color: #001080">client</span><span style="color: #000000"> --</span><span style="color: #001080">save</span>
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>Examples below are in TypeScript, if using JS/CommonJS imports replace import with:</p>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">LiveKit</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;livekit-client&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #001080">LiveKit</span><span style="color: #000000">.</span><span style="color: #795E26">connect</span><span style="color: #000000">(...);</span>
+</code></pre>
+				<a href="#connecting-to-a-room-publish-video-amp-audio" id="connecting-to-a-room-publish-video-amp-audio" style="color: inherit; text-decoration: none;">
+					<h3>Connecting to a room, publish video &amp; audio</h3>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">connect</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">RoomEvent</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">RemoteParticipant</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">RemoteTrackPublication</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">RemoteTrack</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">Participant</span><span style="color: #000000">,</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;livekit-client&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #795E26">connect</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;ws://localhost:7800&#039;</span><span style="color: #000000">, </span><span style="color: #001080">token</span><span style="color: #000000">, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">audio:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">video:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">}).</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">room</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;connected to room&#039;</span><span style="color: #000000">, </span><span style="color: #001080">room</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;participants in room:&#039;</span><span style="color: #000000">, </span><span style="color: #001080">room</span><span style="color: #000000">.</span><span style="color: #001080">participants</span><span style="color: #000000">.</span><span style="color: #001080">size</span><span style="color: #000000">);</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">room</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #001080">RoomEvent</span><span style="color: #000000">.</span><span style="color: #001080">TrackSubscribed</span><span style="color: #000000">, </span><span style="color: #001080">handleTrackSubscribed</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #001080">RoomEvent</span><span style="color: #000000">.</span><span style="color: #001080">TrackUnsubscribed</span><span style="color: #000000">, </span><span style="color: #001080">handleTrackUnsubscribed</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #001080">RoomEvent</span><span style="color: #000000">.</span><span style="color: #001080">ActiveSpeakersChanged</span><span style="color: #000000">, </span><span style="color: #001080">handleActiveSpeakerChange</span><span style="color: #000000">)</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">on</span><span style="color: #000000">(</span><span style="color: #001080">RoomEvent</span><span style="color: #000000">.</span><span style="color: #001080">Disconnected</span><span style="color: #000000">, </span><span style="color: #001080">handleDisconnect</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">handleTrackSubscribed</span><span style="color: #000000">(</span>
+<span style="color: #000000">  </span><span style="color: #001080">track</span><span style="color: #000000">: </span><span style="color: #267F99">RemoteTrack</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">publication</span><span style="color: #000000">: </span><span style="color: #267F99">RemoteTrackPublication</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">participant</span><span style="color: #000000">: </span><span style="color: #267F99">RemoteParticipant</span>
+<span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">track</span><span style="color: #000000">.</span><span style="color: #001080">kind</span><span style="color: #000000"> === </span><span style="color: #001080">Track</span><span style="color: #000000">.</span><span style="color: #001080">Kind</span><span style="color: #000000">.</span><span style="color: #001080">Video</span><span style="color: #000000"> || </span><span style="color: #001080">track</span><span style="color: #000000">.</span><span style="color: #001080">kind</span><span style="color: #000000"> === </span><span style="color: #001080">Track</span><span style="color: #000000">.</span><span style="color: #001080">Kind</span><span style="color: #000000">.</span><span style="color: #001080">Audio</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// attach it to a new HTMLVideoElement or HTMLAudioElement</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">element</span><span style="color: #000000"> = </span><span style="color: #001080">track</span><span style="color: #000000">.</span><span style="color: #795E26">attach</span><span style="color: #000000">();</span>
+<span style="color: #000000">    </span><span style="color: #001080">parentElement</span><span style="color: #000000">.</span><span style="color: #795E26">appendChild</span><span style="color: #000000">(</span><span style="color: #001080">element</span><span style="color: #000000">);</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">handleTrackUnsubscribed</span><span style="color: #000000">(</span>
+<span style="color: #000000">  </span><span style="color: #001080">track</span><span style="color: #000000">: </span><span style="color: #267F99">RemoteTrack</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">publication</span><span style="color: #000000">: </span><span style="color: #267F99">RemoteTrackPublication</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">participant</span><span style="color: #000000">: </span><span style="color: #267F99">RemoteParticipant</span>
+<span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// remove tracks from all attached elements</span>
+<span style="color: #000000">  </span><span style="color: #001080">track</span><span style="color: #000000">.</span><span style="color: #795E26">detach</span><span style="color: #000000">();</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">handleActiveSpeakerChange</span><span style="color: #000000">(</span><span style="color: #001080">speakers</span><span style="color: #000000">: </span><span style="color: #267F99">Participant</span><span style="color: #000000">[]) {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// show UI indicators when participant is speaking</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">handleDisconnect</span><span style="color: #000000">() {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;disconnected from room&#039;</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>In order to connect to a room, you need to first create an access token.</p>
+				<p>Access tokens are JWT tokens that authorizes the SDK. LiveKit tokens include the room and participant name, and should be created for each participant that joins the room.</p>
+				<p>Access tokens can be created with livekit-cli, that came with the server, or <a href="https://github.com/livekit/server-api-js">server-api-js</a>.</p>
+				<pre><code><span style="color: #000000">./</span><span style="color: #001080">bin</span><span style="color: #000000">/</span><span style="color: #001080">livekit</span><span style="color: #000000">-</span><span style="color: #001080">cli</span><span style="color: #000000"> </span><span style="color: #001080">create</span><span style="color: #000000">-</span><span style="color: #001080">token</span><span style="color: #000000"> --</span><span style="color: #001080">join</span><span style="color: #000000"> --</span><span style="color: #001080">r</span><span style="color: #000000"> &lt;</span><span style="color: #001080">room_name</span><span style="color: #000000">&gt; --</span><span style="color: #001080">p</span><span style="color: #000000"> &lt;</span><span style="color: #001080">participant_name</span><span style="color: #000000">&gt;</span>
+</code></pre>
+				<a href="#manually-publish-mute-unpublish" id="manually-publish-mute-unpublish" style="color: inherit; text-decoration: none;">
+					<h3>Manually publish, mute, unpublish</h3>
+				</a>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">createLocalVideoTrack</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;livekit-client&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">videoTrack</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">createLocalVideoTrack</span><span style="color: #000000">();</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">publication</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">room</span><span style="color: #000000">.</span><span style="color: #001080">localParticipant</span><span style="color: #000000">.</span><span style="color: #795E26">publishTrack</span><span style="color: #000000">(</span><span style="color: #001080">videoTrack</span><span style="color: #000000">, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;mytrack&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">simulcast:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #001080">videoTrack</span><span style="color: #000000">.</span><span style="color: #795E26">mute</span><span style="color: #000000">();</span>
+
+<span style="color: #001080">room</span><span style="color: #000000">.</span><span style="color: #001080">localParticipant</span><span style="color: #000000">.</span><span style="color: #795E26">unpublishTrack</span><span style="color: #000000">(</span><span style="color: #001080">videoTrack</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<a href="#sdk-sample" id="sdk-sample" style="color: inherit; text-decoration: none;">
+					<h3>SDK Sample</h3>
+				</a>
+				<p><a href="example/sample.ts">example/sample.ts</a> contains a demo webapp that uses the SDK. Run it with <code>yarn sample</code></p>
+				<a href="#browser-support" id="browser-support" style="color: inherit; text-decoration: none;">
+					<h2>Browser Support</h2>
+				</a>
+				<table>
+					<thead>
+						<tr>
+							<th>Browser</th>
+							<th>Desktop OS</th>
+							<th>Mobile OS</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>Chrome</td>
+							<td>Windows, macOS, Linux</td>
+							<td>Android</td>
+						</tr>
+						<tr>
+							<td>Firefox</td>
+							<td>Windows, macOS, Linux</td>
+							<td>Android</td>
+						</tr>
+						<tr>
+							<td>Safari</td>
+							<td>macOS</td>
+							<td>iOS</td>
+						</tr>
+						<tr>
+							<td>Edge (Chromium)</td>
+							<td>Windows, macOS</td>
+							<td></td>
+						</tr>
+				</tbody></table>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/track.html">Track</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/videopresets.html">Video<wbr>Presets</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/videotrack.html">Video<wbr>Track</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/loglevel.html" class="tsd-kind-icon">Log<wbr>Level</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/participantevent.html" class="tsd-kind-icon">Participant<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/roomevent.html" class="tsd-kind-icon">Room<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/roomstate.html" class="tsd-kind-icon">Room<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/trackevent.html" class="tsd-kind-icon">Track<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/audiotrack.html" class="tsd-kind-icon">Audio<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/livekiterror.html" class="tsd-kind-icon">Livekit<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localaudiotrack.html" class="tsd-kind-icon">Local<wbr>Audio<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localaudiotrackpublication.html" class="tsd-kind-icon">Local<wbr>Audio<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localdatatrack.html" class="tsd-kind-icon">Local<wbr>Data<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localdatatrackpublication.html" class="tsd-kind-icon">Local<wbr>Data<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localparticipant.html" class="tsd-kind-icon">Local<wbr>Participant</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localtrackpublication.html" class="tsd-kind-icon">Local<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localvideotrack.html" class="tsd-kind-icon">Local<wbr>Video<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/localvideotrackpublication.html" class="tsd-kind-icon">Local<wbr>Video<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/participant.html" class="tsd-kind-icon">Participant</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remoteaudiotrack.html" class="tsd-kind-icon">Remote<wbr>Audio<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remoteaudiotrackpublication.html" class="tsd-kind-icon">Remote<wbr>Audio<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remotedatatrack.html" class="tsd-kind-icon">Remote<wbr>Data<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remotedatatrackpublication.html" class="tsd-kind-icon">Remote<wbr>Data<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remoteparticipant.html" class="tsd-kind-icon">Remote<wbr>Participant</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remotetrackpublication.html" class="tsd-kind-icon">Remote<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remotevideotrack.html" class="tsd-kind-icon">Remote<wbr>Video<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/remotevideotrackpublication.html" class="tsd-kind-icon">Remote<wbr>Video<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/room.html" class="tsd-kind-icon">Room</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/track.html" class="tsd-kind-icon">Track</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/trackinvaliderror.html" class="tsd-kind-icon">Track<wbr>Invalid<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/trackpublication.html" class="tsd-kind-icon">Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/unsupportedserver.html" class="tsd-kind-icon">Unsupported<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/videotrack.html" class="tsd-kind-icon">Video<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/connectoptions.html" class="tsd-kind-icon">Connect<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/connectioninfo.html" class="tsd-kind-icon">Connection<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createaudiotrackoptions.html" class="tsd-kind-icon">Create<wbr>Audio<wbr>Track<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createlocaltrackoptions.html" class="tsd-kind-icon">Create<wbr>Local<wbr>Track<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createlocaltracksoptions.html" class="tsd-kind-icon">Create<wbr>Local<wbr>Tracks<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createvideotrackoptions.html" class="tsd-kind-icon">Create<wbr>Video<wbr>Track<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/localdatatrackoptions.html" class="tsd-kind-icon">Local<wbr>Data<wbr>Track<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/trackpublishoptions.html" class="tsd-kind-icon">Track<wbr>Publish<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/videoencoding.html" class="tsd-kind-icon">Video<wbr>Encoding</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/videopreset.html" class="tsd-kind-icon">Video<wbr>Preset</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/videoresolutionconstraint.html" class="tsd-kind-icon">Video<wbr>Resolution<wbr>Constraint</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#audiotrackpublication" class="tsd-kind-icon">Audio<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#datatrackpublication" class="tsd-kind-icon">Data<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#localtrack" class="tsd-kind-icon">Local<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#remotetrack" class="tsd-kind-icon">Remote<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#videocodec" class="tsd-kind-icon">Video<wbr>Codec</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#videotrackpublication" class="tsd-kind-icon">Video<wbr>Track<wbr>Publication</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#version" class="tsd-kind-icon">version</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#connect" class="tsd-kind-icon">connect</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#createlocalaudiotrack" class="tsd-kind-icon">create<wbr>Local<wbr>Audio<wbr>Track</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#createlocaltracks" class="tsd-kind-icon">create<wbr>Local<wbr>Tracks</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#createlocalvideotrack" class="tsd-kind-icon">create<wbr>Local<wbr>Video<wbr>Track</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
