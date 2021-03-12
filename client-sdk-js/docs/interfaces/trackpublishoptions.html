@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TrackPublishOptions | LiveKit JS Client SDK - v0.5.0</title>
-	<meta name="description" content="Documentation for LiveKit JS Client SDK - v0.5.0">
+	<title>TrackPublishOptions | LiveKit JS Client SDK - v0.5.2</title>
+	<meta name="description" content="Documentation for LiveKit JS Client SDK - v0.5.2">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">LiveKit JS Client SDK - v0.5.0</a>
+					<a href="../index.html" class="title">LiveKit JS Client SDK - v0.5.2</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -50,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">LiveKit JS Client SDK - v0.5.0</a>
+					<a href="../modules.html">LiveKit JS Client SDK - v0.5.2</a>
 				</li>
 				<li>
 					<a href="trackpublishoptions.html">TrackPublishOptions</a>
@@ -85,6 +85,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="trackpublishoptions.html#audiobitrate" class="tsd-kind-icon">audio<wbr>Bitrate</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="trackpublishoptions.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="trackpublishoptions.html#simulcast" class="tsd-kind-icon">simulcast</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="trackpublishoptions.html#videocodec" class="tsd-kind-icon">video<wbr>Codec</a></li>
@@ -97,12 +98,27 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="audiobitrate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> audio<wbr>Bitrate</h3>
+					<div class="tsd-signature tsd-kind-icon">audio<wbr>Bitrate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/options.ts#L26">room/track/options.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>max audio bitrate, defaults to <a href="../modules/audiopresets.html#speech">AudioPresets.speech</a></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="name" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/options.ts#L10">room/track/options.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/options.ts#L10">room/track/options.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -117,7 +133,7 @@
 					<div class="tsd-signature tsd-kind-icon">simulcast<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/options.ts#L27">room/track/options.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/options.ts#L32">room/track/options.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -133,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Codec<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;vp8&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;h264&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/options.ts#L21">room/track/options.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/options.ts#L21">room/track/options.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -148,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">video<wbr>Encoding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="videoencoding.html" class="tsd-signature-type" data-tsd-kind="Interface">VideoEncoding</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/options.ts#L16">room/track/options.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/options.ts#L16">room/track/options.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -175,6 +191,9 @@
 					<li class="current tsd-kind-interface">
 						<a href="trackpublishoptions.html" class="tsd-kind-icon">Track<wbr>Publish<wbr>Options</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="trackpublishoptions.html#audiobitrate" class="tsd-kind-icon">audio<wbr>Bitrate</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="trackpublishoptions.html#name" class="tsd-kind-icon">name</a>
 							</li>

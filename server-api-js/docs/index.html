@@ -1,0 +1,223 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>LiveKit JS Server SDK - v0.2.3</title>
+	<meta name="description" content="Documentation for LiveKit JS Server SDK - v0.2.3">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">LiveKit JS Server SDK - v0.2.3</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>LiveKit JS Server SDK - v0.2.3</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#livekit-server-api-for-js" id="livekit-server-api-for-js" style="color: inherit; text-decoration: none;">
+					<h1>LiveKit Server API for JS</h1>
+				</a>
+				<p>Javascript/Typescript APIs to manage rooms and to create access tokens. This library is designed to work with <a href="https://github.com/livekit/livekit-server">livekit-server</a>. Use it with a Node.js backend to manage access to LiveKit.</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<a href="#yarn" id="yarn" style="color: inherit; text-decoration: none;">
+					<h3>Yarn</h3>
+				</a>
+				<pre><code><span style="color: #001080">yarn</span><span style="color: #000000"> </span><span style="color: #001080">add</span><span style="color: #000000"> </span><span style="color: #001080">livekit</span><span style="color: #000000">-</span><span style="color: #001080">server</span><span style="color: #000000">-</span><span style="color: #001080">api</span>
+</code></pre>
+				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
+					<h3>NPM</h3>
+				</a>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span><span style="color: #000000"> </span><span style="color: #001080">livekit</span><span style="color: #000000">-</span><span style="color: #001080">server</span><span style="color: #000000">-</span><span style="color: #001080">api</span><span style="color: #000000"> --</span><span style="color: #001080">save</span>
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<a href="#environment-variables" id="environment-variables" style="color: inherit; text-decoration: none;">
+					<h3>Environment Variables</h3>
+				</a>
+				<p>You may store credentials in environment variables. If api-key or api-secret is not passed in when creating a <code>RoomServiceClient</code> or <code>AccessToken</code>, the values in the following env vars will be used:</p>
+				<ul>
+					<li><code>LIVEKIT_API_KEY</code></li>
+					<li><code>LIVEKIT_API_SECRET</code></li>
+				</ul>
+				<a href="#commonjs" id="commonjs" style="color: inherit; text-decoration: none;">
+					<h3>CommonJS</h3>
+				</a>
+				<p>If your environment doesn&#39;t support ES6 imports, replace the import statements in the examples with</p>
+				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">livekitApi</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;livekit-server-api&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">AccessToken</span><span style="color: #000000"> = </span><span style="color: #001080">livekitApi</span><span style="color: #000000">.</span><span style="color: #001080">AccessToken</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">RoomServiceClient</span><span style="color: #000000"> = </span><span style="color: #001080">livekitApi</span><span style="color: #000000">.</span><span style="color: #001080">RoomServiceClient</span><span style="color: #000000">;</span>
+</code></pre>
+				<a href="#creating-access-tokens" id="creating-access-tokens" style="color: inherit; text-decoration: none;">
+					<h3>Creating Access Tokens</h3>
+				</a>
+				<p>Creating a token for participant to join a room.</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">AccessToken</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;livekit-server-api&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #008000">// if this room doesn&#039;t exist, it&#039;ll be automatically created when the first</span>
+<span style="color: #008000">// client joins</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">roomName</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;name-of-room&#039;</span><span style="color: #000000">;</span>
+<span style="color: #008000">// identifier to be used for participant.</span>
+<span style="color: #008000">// it&#039;s available as LocalParticipant.identity with livekit-client SDK</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">participantName</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;user-name&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">at</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">AccessToken</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;api-key&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;secret-key&#039;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">  </span><span style="color: #001080">identity:</span><span style="color: #000000"> </span><span style="color: #001080">participantName</span><span style="color: #000000">,</span>
+<span style="color: #000000">});</span>
+<span style="color: #001080">at</span><span style="color: #000000">.</span><span style="color: #795E26">addGrant</span><span style="color: #000000">({ </span><span style="color: #001080">room:</span><span style="color: #000000"> </span><span style="color: #001080">roomName</span><span style="color: #000000"> });</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">token</span><span style="color: #000000"> = </span><span style="color: #001080">at</span><span style="color: #000000">.</span><span style="color: #795E26">toJwt</span><span style="color: #000000">();</span>
+<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;access token&#039;</span><span style="color: #000000">, </span><span style="color: #001080">token</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>By default, the token expires after 6 hours. you may override this by passing in <code>ttl</code> in the access token options. <code>ttl</code> is expressed in seconds (as number) or a string describing a time span <a href="https://github.com/vercel/ms">vercel/ms</a>. eg: &#39;2 days&#39;, &#39;10h&#39;.</p>
+				<a href="#managing-rooms" id="managing-rooms" style="color: inherit; text-decoration: none;">
+					<h3>Managing Rooms</h3>
+				</a>
+				<p><code>RoomServiceClient</code> gives you APIs to list, create, and delete rooms. It also requires a pair of api key/secret key to operate.</p>
+				<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">RoomServiceClient</span><span style="color: #000000">, </span><span style="color: #001080">Room</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;livekit-server-api&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">livekitHost</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;https://my.livekit.host&#039;</span><span style="color: #000000">;</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">svc</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">RoomServiceClient</span><span style="color: #000000">(</span><span style="color: #001080">livekitHost</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;api-key&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;secret-key&#039;</span><span style="color: #000000">);</span>
+
+<span style="color: #008000">// list rooms</span>
+<span style="color: #001080">svc</span><span style="color: #000000">.</span><span style="color: #795E26">listRooms</span><span style="color: #000000">().</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">rooms</span><span style="color: #000000">: </span><span style="color: #267F99">Room</span><span style="color: #000000">[]) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;existing rooms&#039;</span><span style="color: #000000">, </span><span style="color: #001080">rooms</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+
+<span style="color: #008000">// create a new room</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">opts</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myroom&#039;</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #008000">// timeout in seconds</span>
+<span style="color: #000000">  </span><span style="color: #001080">emptyTimeout</span><span style="color: #000000">: </span><span style="color: #098658">10</span><span style="color: #000000"> * </span><span style="color: #098658">60</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #001080">maxParticipants</span><span style="color: #000000">: </span><span style="color: #098658">20</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
+<span style="color: #001080">svc</span><span style="color: #000000">.</span><span style="color: #795E26">createRoom</span><span style="color: #000000">(</span><span style="color: #001080">opts</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">((</span><span style="color: #001080">room</span><span style="color: #000000">: </span><span style="color: #267F99">Room</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;room created&#039;</span><span style="color: #000000">, </span><span style="color: #001080">room</span><span style="color: #000000">)</span>
+<span style="color: #000000">})</span>
+
+<span style="color: #008000">// delete a room</span>
+<span style="color: #001080">svc</span><span style="color: #000000">.</span><span style="color: #795E26">deleteRoom</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;myroom&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">then</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;room deleted&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">})</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/participantinfo_state.html" class="tsd-kind-icon">Participant<wbr>Info_<wbr><wbr>State</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/tracktype.html" class="tsd-kind-icon">Track<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/accesstoken.html" class="tsd-kind-icon">Access<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/roomserviceclient.html" class="tsd-kind-icon">Room<wbr>Service<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/accesstokenoptions.html" class="tsd-kind-icon">Access<wbr>Token<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/createoptions.html" class="tsd-kind-icon">Create<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/participantinfo.html" class="tsd-kind-icon">Participant<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/room.html" class="tsd-kind-icon">Room</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/trackinfo.html" class="tsd-kind-icon">Track<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/videogrant.html" class="tsd-kind-icon">Video<wbr>Grant</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#participantinfo" class="tsd-kind-icon">Participant<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#room" class="tsd-kind-icon">Room</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="modules.html#trackinfo" class="tsd-kind-icon">Track<wbr>Info</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

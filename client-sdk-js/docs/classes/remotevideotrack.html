@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RemoteVideoTrack | LiveKit JS Client SDK - v0.5.0</title>
-	<meta name="description" content="Documentation for LiveKit JS Client SDK - v0.5.0">
+	<title>RemoteVideoTrack | LiveKit JS Client SDK - v0.5.2</title>
+	<meta name="description" content="Documentation for LiveKit JS Client SDK - v0.5.2">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<script async src="../assets/js/search.js" id="search-script"></script>
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">LiveKit JS Client SDK - v0.5.0</a>
+					<a href="../index.html" class="title">LiveKit JS Client SDK - v0.5.2</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -50,7 +50,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">LiveKit JS Client SDK - v0.5.0</a>
+					<a href="../modules.html">LiveKit JS Client SDK - v0.5.2</a>
 				</li>
 				<li>
 					<a href="remotevideotrack.html">RemoteVideoTrack</a>
@@ -104,8 +104,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="remotevideotrack.html#attach" class="tsd-kind-icon">attach</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="remotevideotrack.html#detach" class="tsd-kind-icon">detach</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="remotevideotrack.html#getreceiverstats" class="tsd-kind-icon">get<wbr>Receiver<wbr>Stats</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="remotevideotrack.html#setmuted" class="tsd-kind-icon">set<wbr>Muted</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="remotevideotrack.html#stop" class="tsd-kind-icon">stop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="remotevideotrack.html#startmonitor" class="tsd-kind-icon">start<wbr>Monitor</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="remotevideotrack.html#stop" class="tsd-kind-icon">stop</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,13 +119,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Remote<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>mediaTrack<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MediaStreamTrack</span>, sid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="remotevideotrack.html" class="tsd-signature-type" data-tsd-kind="Class">RemoteVideoTrack</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Remote<wbr>Video<wbr>Track<span class="tsd-signature-symbol">(</span>mediaTrack<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MediaStreamTrack</span>, sid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, receiver<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RTCRtpReceiver</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="remotevideotrack.html" class="tsd-signature-type" data-tsd-kind="Class">RemoteVideoTrack</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/RemoteVideoTrack.ts#L6">room/track/RemoteVideoTrack.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/RemoteVideoTrack.ts#L11">room/track/RemoteVideoTrack.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -133,6 +135,9 @@
 								</li>
 								<li>
 									<h5>sid: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>receiver: <span class="tsd-signature-type">RTCRtpReceiver</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="remotevideotrack.html" class="tsd-signature-type" data-tsd-kind="Class">RemoteVideoTrack</a></h4>
@@ -149,7 +154,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#attachedelements">attachedElements</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L16">room/track/VideoTrack.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L16">room/track/VideoTrack.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +165,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#dimensions">dimensions</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L15">room/track/VideoTrack.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L15">room/track/VideoTrack.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,7 +176,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#ismuted">isMuted</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L13">room/track/VideoTrack.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L13">room/track/VideoTrack.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +187,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#isstarted">isStarted</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L12">room/track/VideoTrack.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L12">room/track/VideoTrack.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +198,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#kind">kind</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/Track.ts#L5">room/track/Track.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/Track.ts#L5">room/track/Track.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +209,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#mediastreamtrack">mediaStreamTrack</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L14">room/track/VideoTrack.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L14">room/track/VideoTrack.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +220,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/Track.ts#L6">room/track/Track.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/Track.ts#L6">room/track/Track.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">sid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/RemoteVideoTrack.ts#L6">room/track/RemoteVideoTrack.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/RemoteVideoTrack.ts#L8">room/track/RemoteVideoTrack.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +249,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#attach">attach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L28">room/track/VideoTrack.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L28">room/track/VideoTrack.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLVideoElement</span></h4>
@@ -253,7 +258,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#attach">attach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L29">room/track/VideoTrack.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L29">room/track/VideoTrack.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -278,7 +283,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#detach">detach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L41">room/track/VideoTrack.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L41">room/track/VideoTrack.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLMediaElement</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -287,7 +292,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#detach">detach</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L42">room/track/VideoTrack.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/VideoTrack.ts#L42">room/track/VideoTrack.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -301,6 +306,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getreceiverstats" class="tsd-anchor"></a>
+					<h3>get<wbr>Receiver<wbr>Stats</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Receiver<wbr>Stats<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">VideoReceiverStats</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/RemoteVideoTrack.ts#L39">room/track/RemoteVideoTrack.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">VideoReceiverStats</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setmuted" class="tsd-anchor"></a>
 					<h3>set<wbr>Muted</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -310,7 +332,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/RemoteVideoTrack.ts#L14">room/track/RemoteVideoTrack.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/RemoteVideoTrack.ts#L24">room/track/RemoteVideoTrack.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -323,18 +345,35 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="startmonitor" class="tsd-anchor"></a>
+					<h3>start<wbr>Monitor</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Monitor<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/RemoteVideoTrack.ts#L31">room/track/RemoteVideoTrack.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="stop" class="tsd-anchor"></a>
 					<h3>stop</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#stop">stop</a></p>
+								<p>Overrides <a href="videotrack.html">VideoTrack</a>.<a href="videotrack.html#stop">stop</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/55a148e/src/room/track/VideoTrack.ts#L47">room/track/VideoTrack.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/livekit/client-sdk-js/blob/778f3af/src/room/track/RemoteVideoTrack.ts#L35">room/track/RemoteVideoTrack.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -392,9 +431,15 @@
 								<a href="remotevideotrack.html#detach" class="tsd-kind-icon">detach</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="remotevideotrack.html#getreceiverstats" class="tsd-kind-icon">get<wbr>Receiver<wbr>Stats</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="remotevideotrack.html#setmuted" class="tsd-kind-icon">set<wbr>Muted</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="remotevideotrack.html#startmonitor" class="tsd-kind-icon">start<wbr>Monitor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="remotevideotrack.html#stop" class="tsd-kind-icon">stop</a>
 							</li>
 						</ul>
